@@ -20,40 +20,76 @@ This repository contains the assignment for Student Khabri, featuring a Laravel 
 
 ## 📦 Setup Instructions
 
-### Backend (Laravel)
+### Prerequisites
+- Node.js & npm installed
+- PHP & Composer installed (or XAMPP)
+- Git installed
 
-1.  Navigate to the backend directory:
-    ```bash
-    cd backend
-    ```
-2.  Install dependencies:
-    ```bash
-    composer install
-    ```
-3.  Run migrations (Ensure you have PHP installed/configured):
-    ```bash
-    # Use your php executable path if not in global PATH
-    php artisan migrate
-    ```
-4.  Start the server:
-    ```bash
-    php artisan serve
-    ```
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd "student khabri"
+```
 
-### Frontend (React)
+### 2. Backend Setup (Laravel)
+Navigate to the backend directory:
+```bash
+cd backend
+```
 
-1.  Navigate to the frontend directory:
-    ```bash
-    cd frontend
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the application:
-    ```bash
-    npm start
-    ```
+**Step A: Install Dependencies**
+```bash
+composer install
+```
+
+**Step B: Environment Setup**
+Duplicate the example environment file:
+```bash
+cp .env.example .env
+# Windows (Command Prompt/PowerShell):
+copy .env.example .env
+```
+
+**Step C: Generate App Key**
+```bash
+php artisan key:generate
+# If using XAMPP:
+C:\xampp\php\php.exe artisan key:generate
+```
+
+**Step D: Database Setup**
+1. Create an empty file named `database.sqlite` inside the `backend/database` folder.
+2. Run migrations:
+```bash
+php artisan migrate
+# If using XAMPP:
+C:\xampp\php\php.exe artisan migrate
+```
+
+**Step E: Start Server**
+```bash
+php artisan serve
+# If using XAMPP:
+C:\xampp\php\php.exe artisan serve
+```
+The backend will run at `http://127.0.0.1:8000`.
+
+### 3. Frontend Setup (React)
+Open a new terminal and navigate to the frontend directory:
+```bash
+cd frontend
+```
+
+**Step A: Install Dependencies**
+```bash
+npm install
+```
+
+**Step B: Start Application**
+```bash
+npm start
+```
+The frontend will run at `http://localhost:3000`.
 
 ## 📝 Assignment Note
 
