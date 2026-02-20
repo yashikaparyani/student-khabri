@@ -1,0 +1,273 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #fff, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+  text-align: center;
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff6b6b;
+  padding: 12px 20px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Glass Panel */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  box-shadow: 0 12px 40px 0 rgba(0, 243, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+button {
+  background: linear-gradient(135deg, var(--secondary-color), #9d00e0);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(188, 19, 254, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+}
+
+button.secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-color);
+  box-shadow: none;
+}
+
+/* Grid Layout for Students */
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.student-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.student-card:hover::before {
+  opacity: 1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: white;
+}
+
+.student-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.student-details {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 16px;
+}
+
+.icon-btn {
+  background: transparent;
+  padding: 8px;
+  border-radius: 6px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: unset;
+}
+
+.icon-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: none;
+  box-shadow: none;
+}
+
+.icon-btn.delete:hover {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  color: var(--primary-color);
+}
+
+.professional-message {
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #ccc;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 60px;
+  padding-bottom: 20px;
+}
+
+footer span {
+  color: var(--primary-color);
+  font-weight: 600;
+}
